@@ -21,4 +21,4 @@ before_script:
   - python manage.py runserver &
 
 script:
-  - coverage run manage.py tests
+  - python manage.py test
