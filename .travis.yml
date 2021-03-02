@@ -1,16 +1,15 @@
-dist: xenial
 language: python
+dist: xenial
 python:
   - "3.8"
-env:
-  global:
-    - MOZ_HEADLESS=1
+services:
+  - xvfb
 addons:
   sauce_connect:
     username: "pipebustamante"
     access_key: "63170bb9-7aec-4931-991f-424de3f257fa"
   firefox: latest
-
+  chrome: stable
 
 before_install:
   - # start your web application and listen on `localhost`
@@ -21,10 +20,7 @@ install:
   - pip install selenium
   - pip install webdriver-manager
 # command to run tests
-
-
 before_script:
   - python manage.py runserver &
-
 script:
   - pytest

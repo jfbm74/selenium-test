@@ -14,12 +14,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
-
 class TestInicioChrome():
     def setup_method(self, method):
         self.chrome_options = Options()
         self.chrome_options.add_argument("--headless")
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver = webdriver.Remote(
+    "https://pipebustamante:63170bb9-7aec-4931-991f-424de3f257fa@ondemand.us-west-1.saucelabs.com:443/wd/hub")
         self.vars = {}
 
     def teardown_method(self, method):
